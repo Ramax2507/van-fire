@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tansche Forms</title>
+    <link rel="stylesheet" href="temp.css">
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+        import { getDatabase } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
+
+        // Your Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyA3PHP8N26-yXnelG-7MdHerrbdy646HbQ",
+            authDomain: "forms-e6b1b.firebaseapp.com",
+            databaseURL: "https://forms-e6b1b-default-rtdb.firebaseio.com", // Added databaseURL
+            projectId: "forms-e6b1b",
+            storageBucket: "forms-e6b1b.appspot.com",
+            messagingSenderId: "351846427381",
+            appId: "1:351846427381:web:8fa2e58d8fe913a35a73bc",
+            measurementId: "G-NLDRYGBYM6"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+        // Exporting database for JS usage
+        export { database };
+    </script>
+    <script type="module" src="index2.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Vanakam</h1>
+        <p>pls Enter Form details</p>
+        <form id="dataForm">
+            <input type="text" id="name" placeholder="Name" required><br><br>
+            <input type="email" id="email" placeholder="Email" required><br><br>
+            <button type="submit">Submit</button>
+            
+        </form>
+    </div>
+</body>
+</html>

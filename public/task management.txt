@@ -1,0 +1,8 @@
+St 1 hosting
+st 2 databse cofig
+st 3new fiekd config
+st 4 nxt page config
+st 5 demo run
+st 6 styling
+st 7 pilot
+st 8 enhancement
