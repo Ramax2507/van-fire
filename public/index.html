@@ -5,40 +5,289 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tansche Forms</title>
     <link rel="stylesheet" href="temp.css">
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
-        import { getDatabase } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
-
-        // Your Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyA3PHP8N26-yXnelG-7MdHerrbdy646HbQ",
-            authDomain: "forms-e6b1b.firebaseapp.com",
-            databaseURL: "https://forms-e6b1b-default-rtdb.firebaseio.com", // Added databaseURL
-            projectId: "forms-e6b1b",
-            storageBucket: "forms-e6b1b.appspot.com",
-            messagingSenderId: "351846427381",
-            appId: "1:351846427381:web:8fa2e58d8fe913a35a73bc",
-            measurementId: "G-NLDRYGBYM6"        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const database = getDatabase(app);
-
-        // Exporting database for JS usage
-        export { database };
-    </script>
     <script type="module" src="index2.js"></script>
 </head>
 <body>
     <div class="container">
-        <h1>Vanakam</h1>
-        <p>pls Enter Form details</p>
-        <form id="dataForm">
-            <input type="text" id="name" placeholder="Name" required><br><br>
-            <input type="email" id="email" placeholder="Email" required><br><br>
-            <button type="submit">Submit</button>
-            
-        </form>
+    <h1>Vanakkam</h1>
+    <div id="message">You are not signed in.</div>
+    <div id="userInfo"></div>
+    <button id="googleSignInButton">Sign In with Google</button>
+    <p>Please enter form details:</p>
+    <form id="dataForm">
+    <input type="text" id="name" placeholder="Name" required><br><br>
+    <input type="email" id="email" placeholder="Email" required><br><br>
+
+    <!-- Question 1 -->
+    <div class="rating-section">
+      <p class="question"><b>1. How effective are the faculties in explaining concepts and answering questions?
+      பாடங்களை விளக்குவதிலும் சந்தேகங்களை தீர்ப்பதிலும் உங்கள் ஆசிரியர்களின் திறனை மதிப்பிடுக</b></p>
+      <div class="rating">
+        <input type="radio" id="q1-5" name="q1" value="5"><label for="q1-5">☆</label>
+        <input type="radio" id="q1-4" name="q1" value="4"><label for="q1-4">☆</label>
+        <input type="radio" id="q1-3" name="q1" value="3"><label for="q1-3">☆</label>
+        <input type="radio" id="q1-2" name="q1" value="2"><label for="q1-2">☆</label>
+        <input type="radio" id="q1-1" name="q1" value="1"><label for="q1-1">☆</label>
+      </div>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="rating-section">
+      <p class="question"><b>2. How accessible are the faculties outside of class?
+        பாட நேரங்களை தவிர்த்து பிற நேரங்களில் ஆசிரியர்களை அனுக முடிகிறதா?
+       (எ. கா. அலுவலக நேரம், மின்னஞ்சல் வாயிலாக)</b></p>
+      <div class="rating">
+        <input type="radio" id="q2-5" name="q2" value="5"><label for="q2-5">☆</label>
+        <input type="radio" id="q2-4" name="q2" value="4"><label for="q2-4">☆</label>
+        <input type="radio" id="q2-3" name="q2" value="3"><label for="q2-3">☆</label>
+        <input type="radio" id="q2-2" name="q2" value="2"><label for="q2-2">☆</label>
+        <input type="radio" id="q2-1" name="q2" value="1"><label for="q2-1">☆</label>
+      </div>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="rating-section">
+      <p class="question"><b>3.How satisfied are you with the value of the course for the fees you paid?
+        தங்களுக்கு கற்பிக்கப்படும் பாடத்தின் மதிப்பு தங்களின் கல்வி கட்டணத்திற்கு ஏற்ற வகையில்
+        அமைந்துள்ளதாக உணர்கிறீர்களா?</b></p>
+      <div class="rating">
+        <input type="radio" id="q3-5" name="q3" value="5"><label for="q3-5">☆</label>
+        <input type="radio" id="q3-4" name="q3" value="4"><label for="q3-4">☆</label>
+        <input type="radio" id="q3-3" name="q3" value="3"><label for="q3-3">☆</label>
+        <input type="radio" id="q3-2" name="q3" value="2"><label for="q3-2">☆</label>
+        <input type="radio" id="q3-1" name="q3" value="1"><label for="q3-1">☆</label>
+      </div>
+    </div>
+ 
+    <div class="rating-section">
+        <p class="question"><b>4.Do you like the learning environment on campus?
+            உங்கள் கல்லூரியின் கற்றல் சூழலை மதிப்பிடுக</b>
+            </p>
+        <div class="rating">
+          <input type="radio" id="q4-5" name="q4" value="5"><label for="q4-5">☆</label>
+          <input type="radio" id="q4-4" name="q4" value="4"><label for="q4-4">☆</label>
+          <input type="radio" id="q4-3" name="q4" value="3"><label for="q4-3">☆</label>
+          <input type="radio" id="q4-2" name="q4" value="2"><label for="q4-2">☆</label>
+          <input type="radio" id="q4-1" name="q4" value="1"><label for="q4-1">☆</label>
+        </div>
+      </div>
+
+      <div class="rating-section">
+        <p class="question"><b>5.Do you feel safe on campus?
+            உங்கள் கல்லூரி வளாகத்திற்குள் நீங்கள் பாதுகாப்பாக உணர்கிறீர்களா?</b>
+            </p>
+        <div class="rating">
+          <input type="radio" id="q5-5" name="q5" value="5"><label for="q5-5">☆</label>
+          <input type="radio" id="q5-4" name="q5" value="4"><label for="q5-4">☆</label>
+          <input type="radio" id="q5-3" name="q5" value="3"><label for="q5-3">☆</label>
+          <input type="radio" id="q5-2" name="q5" value="2"><label for="q5-2">☆</label>
+          <input type="radio" id="q5-1" name="q5" value="1"><label for="q5-1">☆</label>
+        </div>
+      </div>
+
+      <div class="rating-section">
+        <p class="question"><b>6. How effective are the grievance redressal mechanisms available in your college?
+            உங்கள் கல்லூரியில் உள்ள குறை தீர்ப்பு வழிமுறைகளின் செயல்பாட்டை மதிப்பிடுக? </b></p>
+        <div class="rating">
+          <input type="radio" id="q6-5" name="q6" value="5"><label for="q6-5">☆</label>
+          <input type="radio" id="q6-4" name="q6" value="4"><label for="q6-4">☆</label>
+          <input type="radio" id="q6-3" name="q6" value="3"><label for="q6-3">☆</label>
+          <input type="radio" id="q6-2" name="q6" value="2"><label for="q6-2">☆</label>
+          <input type="radio" id="q6-1" name="q6" value="1"><label for="q6-1">☆</label>
+        </div>
+      </div>
+
+      <div class="rating-section">
+        <p class="question"><b>7. Was the admission and enrollment process easy?
+            கல்லூரி சேர்க்கை மற்றும் அதற்கான செயல்முறைகள் எளிதாக இருந்தனவா? </b></p>
+        <div class="rating">
+          <input type="radio" id="q7-5" name="q7" value="5"><label for="q7-5">☆</label>
+          <input type="radio" id="q7-4" name="q7" value="4"><label for="q7-4">☆</label>
+          <input type="radio" id="q7-3" name="q7" value="3"><label for="q7-3">☆</label>
+          <input type="radio" id="q7-2" name="q7" value="2"><label for="q7-2">☆</label>
+          <input type="radio" id="q7-1" name="q7" value="1"><label for="q7-1">☆</label>
+        </div>
+      </div>
+
+      <div class="rating-section">
+        <p class="question"><b>8. Are the administrative staff helpful when you need support?
+            உங்களுக்கு உதவி தேவைப்படும்போது நிர்வாக ஊழியர்கள் உதவுகிறார்களா?
+            </b></p>
+        <div class="rating">
+          <input type="radio" id="q8-5" name="q8" value="5"><label for="q8-5">☆</label>
+          <input type="radio" id="q8-4" name="q8" value="4"><label for="q8-4">☆</label>
+          <input type="radio" id="q8-3" name="q8" value="3"><label for="q8-3">☆</label>
+          <input type="radio" id="q8-2" name="q8" value="2"><label for="q8-2">☆</label>
+          <input type="radio" id="q8-1" name="q8" value="1"><label for="q8-1">☆</label>
+        </div>
+      </div>
+
+      <div class="rating-section">
+        <p class="question"><b>9. How would you rate the quality of classrooms, labs, and other academic facilities
+            (E.g. Wi-Fi)?
+            வகுப்பறைகள், ஆய்வகங்கள் மற்றும் பிற கல்வி வசதிகளின் தரத்தை நீங்கள் எவ்வாறு மதிப்பிடுவீர்கள்
+            (எ. கா. இணையதள வசதிகள் (Wi-Fi) )</b> </p>
+        <div class="rating">
+          <input type="radio" id="q9-5" name="q9" value="5"><label for="q9-5">☆</label>
+          <input type="radio" id="q9-4" name="q9" value="4"><label for="q9-4">☆</label>
+          <input type="radio" id="q9-3" name="q9" value="3"><label for="q9-3">☆</label>
+          <input type="radio" id="q9-2" name="q9" value="2"><label for="q9-2">☆</label>
+          <input type="radio" id="q9-1" name="q9" value="1"><label for="q9-1">☆</label>
+        </div>
+      </div>
+
+      <div class="rating-section">
+        <p class="question"><b>10. How satisfied are you with the availability and quality of library resources (including
+            access to journals)?
+            தங்கள் கல்லூரியில் நூலக சேவைகள் (ஆய்வு இதழ்கள்(Journals) படிக்கும் வசதி உட்பட)
+            திருப்திகரமாக உள்ளதா?</b>
+            </p>
+        <div class="rating">
+          <input type="radio" id="q10-5" name="q10" value="5"><label for="q10-5">☆</label>
+          <input type="radio" id="q10-4" name="q10" value="4"><label for="q10-4">☆</label>
+          <input type="radio" id="q10-3" name="q10" value="3"><label for="q10-3">☆</label>
+          <input type="radio" id="q10-2" name="q10" value="2"><label for="q10-2">☆</label>
+          <input type="radio" id="q10-1" name="q10" value="1"><label for="q10-1">☆</label>
+        </div>
+      </div>
+
+      <div class="rating-section">
+        <p class="question"><b>11. How happy are you with the hostel facilities available in your college? (Only for
+            hostellers – Includes room facility, Food, Safety)
+            உங்கள் கல்லூரியின் விடுதி வசதிகள் குறித்து உங்களின் மதிப்பீடு (விடுதி அறைகள், சுகாதாரம்,
+            பாதுகாப்பு, உணவு) 
+            </b>
+            </p>
+        <div class="rating">
+          <input type="radio" id="q11-5" name="q11" value="5"><label for="q11-5">☆</label>
+          <input type="radio" id="q11-4" name="q11" value="4"><label for="q11-4">☆</label>
+          <input type="radio" id="q11-3" name="q11" value="3"><label for="q11-3">☆</label>
+          <input type="radio" id="q11-2" name="q11" value="2"><label for="q11-2">☆</label>
+          <input type="radio" id="q11-1" name="q11" value="1"><label for="q11-1">☆</label>
+        </div>
+      </div>
+
+      <div class="rating-section">
+        <p class="question"><b>12. How well does the institution provide importance for your mental health and well-
+            being?
+            தங்களின் மனநல மேம்பாட்டிற்கு உங்கள் கல்லூரி முக்கியத்துவம் அளிக்கிறதா?</b>
+            </p>
+        <div class="rating">
+          <input type="radio" id="q12-5" name="q12" value="5"><label for="q12-5">☆</label>
+          <input type="radio" id="q12-4" name="q12" value="4"><label for="q12-4">☆</label>
+          <input type="radio" id="q12-3" name="q12" value="3"><label for="q12-3">☆</label>
+          <input type="radio" id="q12-2" name="q12" value="2"><label for="q12-2">☆</label>
+          <input type="radio" id="q12-1" name="q12" value="1"><label for="q12-1">☆</label>
+        </div>
+      </div>
+
+      <div class="rating-section">
+        <p class="question"><b>13. How effective are the career services in helping you find internships or job
+            opportunities?
+            தொழிற் பயிற்சி(இன்டர்ன்ஷிப்) மற்றும் வேலை வாய்ப்புகளைக் கண்டறிய உங்களுக்கு உதவுவதில்
+            உங்கள் கல்லூரியின் பங்கு? 
+            </b>
+            </p>
+        <div class="rating">
+          <input type="radio" id="q13-5" name="q13" value="5"><label for="q13-5">☆</label>
+          <input type="radio" id="q13-4" name="q13" value="4"><label for="q13-4">☆</label>
+          <input type="radio" id="q13-3" name="q13" value="3"><label for="q13-3">☆</label>
+          <input type="radio" id="q13-2" name="q13" value="2"><label for="q13-2">☆</label>
+          <input type="radio" id="q13-1" name="q13" value="1"><label for="q13-1">☆</label>
+        </div>
+      </div>
+
+      <div class="rating-section">
+        <p class="question"><b>14. How would you rate the institution’s support for skill development (e.g., workshops,
+            certifications)?
+            திறன் மேம்பாட்டிற்கு உங்கள் கல்லூரி முக்கியத்துவம் அளிக்கிறதா? (எ. கா. வேலைவாய்ப்பு சார்ந்த
+            பயிற்சி வகுப்புகள் , சான்றிதழ்கள்)
+            </b>
+            </p>
+        <div class="rating">
+          <input type="radio" id="q14-5" name="q14" value="5"><label for="q14-5">☆</label>
+          <input type="radio" id="q14-4" name="q14" value="4"><label for="q14-4">☆</label>
+          <input type="radio" id="q14-3" name="q14" value="3"><label for="q14-3">☆</label>
+          <input type="radio" id="q14-2" name="q14" value="2"><label for="q14-2">☆</label>
+          <input type="radio" id="q14-1" name="q14" value="1"><label for="q14-1">☆</label>
+        </div>
+      </div>
+
+      <div class="rating-section">
+        <p class="question"><b>15. How satisfied are you with opportunities for research or experiential learning?
+            உங்கள் கல்லூரியின் ஆராய்ச்சி மற்றும் அனுபவக் கற்றலுக்கான வாய்ப்புகளில் நீங்கள் எவ்வளவு
+            திருப்தி அடைகிறீர்கள்?
+            </b>
+            </p>
+        <div class="rating">
+          <input type="radio" id="q15-5" name="q15" value="5"><label for="q15-5">☆</label>
+          <input type="radio" id="q15-4" name="q15" value="4"><label for="q15-4">☆</label>
+          <input type="radio" id="q15-3" name="q15" value="3"><label for="q15-3">☆</label>
+          <input type="radio" id="q15-2" name="q15" value="2"><label for="q15-2">☆</label>
+          <input type="radio" id="q15-1" name="q15" value="1"><label for="q15-1">☆</label>
+        </div>
+      </div>
+
+      <div class="rating-section">
+        <p class="question"><b>16. How well does your institution support extracurricular activities?
+            கல்வி சாரா செயல்பாடுகளை (எ. கா. விளையாட்டு, கலை) உங்கள் கல்லூரி எவ்வளவு சிறப்பாக
+            ஆதரிக்கிறது?
+            </b>
+            </p>
+        <div class="rating">
+          <input type="radio" id="q16-5" name="q16" value="5"><label for="q16-5">☆</label>
+          <input type="radio" id="q16-4" name="q16" value="4"><label for="q16-4">☆</label>
+          <input type="radio" id="q16-3" name="q16" value="3"><label for="q16-3">☆</label>
+          <input type="radio" id="q16-2" name="q16" value="2"><label for="q16-2">☆</label>
+          <input type="radio" id="q16-1" name="q16" value="1"><label for="q16-1">☆</label>
+        </div>
+      </div>
+
+      <div class="rating-section">
+        <p class="question"><b>17. Does your college facilitate to connect with your successful alumni?
+            உங்கள் கல்லூரியின் முன்னாள் மாணவர்களுடன் தொடர்பு கொள்வதற்கான வாய்ப்புகள்
+            வழங்கப்படுகின்றனவா?
+            </b>
+            </p>
+        <div class="rating">
+          <input type="radio" id="q17-5" name="q17" value="5"><label for="q17-5">☆</label>
+          <input type="radio" id="q17-4" name="q17" value="4"><label for="q17-4">☆</label>
+          <input type="radio" id="q17-3" name="q17" value="3"><label for="q17-3">☆</label>
+          <input type="radio" id="q17-2" name="q17" value="2"><label for="q17-2">☆</label>
+          <input type="radio" id="q17-1" name="q17" value="1"><label for="q17-1">☆</label>
+        </div>
+      </div>
+
+      <div class="rating-section">
+        <p class="question"><b>18. How satisfied are you with your overall experience at the institution?
+            கல்லூரியைப் பற்றிய தங்களின் மொத்த மதிப்பீடு.
+            </b>
+            </p>
+        <div class="rating">
+          <input type="radio" id="q18-5" name="q18" value="5"><label for="q18-5">☆</label>
+          <input type="radio" id="q18-4" name="q18" value="4"><label for="q18-4">☆</label>
+          <input type="radio" id="q18-3" name="q18" value="3"><label for="q18-3">☆</label>
+          <input type="radio" id="q18-2" name="q18" value="2"><label for="q18-2">☆</label>
+          <input type="radio" id="q18-1" name="q18" value="1"><label for="q18-1">☆</label>
+        </div>
+      </div>
+
+      <div class="rating-section">
+        <p class="question"><b>19. How likely are you to recommend this institution to others?
+            உங்கள் கல்லூரியை பிறருக்கு பரிந்துரைப்பீர்களா?
+            </b>
+            </p>
+        <div class="rating">
+          <input type="radio" id="q19-5" name="q19" value="5"><label for="q19-5">☆</label>
+          <input type="radio" id="q19-4" name="q19" value="4"><label for="q19-4">☆</label>
+          <input type="radio" id="q19-3" name="q19" value="3"><label for="q19-3">☆</label>
+          <input type="radio" id="q19-2" name="q19" value="2"><label for="q19-2">☆</label>
+          <input type="radio" id="q19-1" name="q19" value="1"><label for="q19-1">☆</label>
+        </div>
+      </div>
+
+      <button type="submit">Submit</button>
+      </form>
     </div>
 </body>
 </html>
